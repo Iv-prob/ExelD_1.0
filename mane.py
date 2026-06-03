@@ -44,3 +44,4 @@ print('Всё готово!')
 input("Нажмите Enter для выхода...")
 
 print('ees')
+print('gogo')
