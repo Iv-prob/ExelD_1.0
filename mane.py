@@ -42,5 +42,3 @@ df.to_excel('./Rez.xlsx', sheet_name='Результаты', index=False)
 
 print('Всё готово!')
 input("Нажмите Enter для выхода...")
-
-print(1+1)
