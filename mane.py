@@ -45,3 +45,4 @@ input("Нажмите Enter для выхода...")
 
 print(1 + 1)
 print('go')
+print('111')
