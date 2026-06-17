@@ -1,5 +1,9 @@
 import pandas as pd
 
+
+problem_count = 0
+problem_l = []
+flag = True
 unique_name = set()
 mass_nev = []
 first = []
@@ -42,6 +46,11 @@ for i in first:
             le.append(i[0])
             pr.append(x[0])
             pr_2.append((i[1]))
+            flag = False
+    if flag:
+        problem_l.append(i)
+        problem_count += 1
+    flag = True
 
 # формируем словарь, который потом будем выводить в качестве результата
 # формат определяет pandas
@@ -53,6 +62,14 @@ df = pd.DataFrame({'Препарат': le,
 # index=False нужно, чтобы убрать столбец с лишними номерами
 df.to_excel('./Rez.xlsx', sheet_name='Результаты', index=False)
 
+if problem_count > 0:
+    print(f'Препаратов, которым не нашлось допродаж {problem_count}:')
+    for problem_position in problem_l:
+        print(f'Строка {problem_position[3]}, наименование: "{problem_position[0]}" категория: "{problem_position[1]}"'
+              f' код: {problem_position[2]}')
+else:
+    print('Каждому препарату нашлась минимум одна допродажа')
+print('')
 
 print('Всё готово!')
 input("Нажмите Enter для выхода...")
