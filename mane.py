@@ -25,10 +25,13 @@ mass_nev.pop(0)
 # second = [['Эсслиал Форте капс 300мг №30\n', 'Витамин Д3', 'ЦБ-00037072'],
 # ['Витамир Магний + В6 форте таб. №30\n', 'Витамин Д3', 'РТ-00002042'], ...]
 for i in mass_nev:
-    if i[0] != '':
-        first.append([i[1], i[2], i[0]])
+    if i[1] != '':
+        first.append([i[1].strip(), i[2].strip(), i[0].strip()])
     if i[4] != '':
-        second.append([i[6], i[4], i[5]])
+        second.append([i[6].strip(), i[4].strip(), i[5].strip()])
+
+for i in second:
+    print(i)
 
 # начало работы
 # делаем сравнения и формируем два массива для дальнейшей работы
