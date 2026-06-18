@@ -8,9 +8,11 @@ unique_name = set()
 mass_nev = []
 first = []
 second = []
+le_le = []
 le = []
 pr = []
 pr_2 = []
+pr_3 = []
 name = input('Введите название файла вместе с расширением: ')
 print('')
 f = open(name)
@@ -43,9 +45,11 @@ for i in mass_nev:
 for i in first:
     for x in second:
         if i[1] == x[1]:
+            le_le.append(i[2])
             le.append(i[0])
             pr.append(x[0])
             pr_2.append((i[1]))
+            pr_3.append((x[2]))
             flag = False
     if flag:
         problem_l.append(i)
@@ -54,9 +58,11 @@ for i in first:
 
 # формируем словарь, который потом будем выводить в качестве результата
 # формат определяет pandas
-df = pd.DataFrame({'Препарат': le,
+df = pd.DataFrame({'Код препарата': le_le,
+                   'Препарат': le,
                    'Допродажа': pr,
-                   'Категория': pr_2})
+                   'Категория': pr_2,
+                   'Код допродажи': pr_3})
 
 # записываем результаты в файл Rez.xlsx
 # index=False нужно, чтобы убрать столбец с лишними номерами
